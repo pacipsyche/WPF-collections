@@ -1,0 +1,27 @@
+﻿<UserControl x:Class="ProductListApp.ProductView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Height="150" Width="400">
+    <Border BorderBrush="Gray" BorderThickness="1" Margin="5">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="100"/>
+            </Grid.ColumnDefinitions>
+
+            <Image Source="{Binding ImagePath}" Stretch="Fill" Margin="5"/>
+
+            <StackPanel Grid.Column="1" Margin="5">
+                <TextBlock Text="{Binding ProductName}" FontWeight="Bold" FontSize="14"/>
+                <TextBlock Text="{Binding Description}" FontSize="12" TextWrapping="Wrap"/>
+                <TextBlock Text="{Binding Manufacturer}" FontSize="12"/>
+                <TextBlock Text="Цена:" FontWeight="Bold" FontSize="12"/>
+                <TextBlock Text="{Binding Price, StringFormat='₽ {0:N2}'}" FontSize="12"/>
+            </StackPanel>
+
+            <TextBlock Grid.Column="2" Text="{Binding Stock, StringFormat='Осталось {0} шт.'}" 
+                       VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="12"/>
+        </Grid>
+    </Border>
+</UserControl>
